@@ -75,8 +75,9 @@ const loginUser = asyncHandler(async (req, res) => {
   const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
 
   const cookieOption = {
-    httpOnly: true,
-    secure: true
+    httpOnly: true, 
+    secure: true, // Set to true if using HTTPS
+    sameSite: 'None' // Adjust sameSite policy as needed for your use case
   }
 
   return res.status(200)

@@ -6,7 +6,7 @@ import { ApiError } from "../utils/ApiError.js"
 
 export const verifyJWT = asyncHandler(async(req,res,next)=>{
 
-  console.log(req.cookies);
+  console.log("cookie" ,req.cookies);
   
     try {
       //get token

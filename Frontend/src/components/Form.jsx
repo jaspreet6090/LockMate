@@ -5,6 +5,7 @@ import {  ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
+axios.defaults.withCredentials = true;
 const Form = () => {
   const [data, setData] = useState({
     websiteUrl: '',
