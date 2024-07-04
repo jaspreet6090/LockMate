@@ -70,7 +70,7 @@ export const Login = () => {
             className="mt-1 p-2 w-full border rounded-md"
             autoComplete="email"
           />
-          {errors.email && <span className="text-red-500">{errors.email.message}</span>}
+          {errors.email && <span className="text-red">{errors.email.message}</span>}
         </div>
 
         <div className="mb-4">
@@ -84,7 +84,7 @@ export const Login = () => {
             className="mt-1 p-2 w-full border rounded-md"
             autoComplete="current-password"
           />
-          {errors.password && <span className="text-red-500">{errors.password.message}</span>}
+          {errors.password && <span className="text-red">{errors.password.message}</span>}
         </div>
 
         <NavLink to="/signup" className="text-center mt-4">

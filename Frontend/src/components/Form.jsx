@@ -25,7 +25,13 @@ const Form = () => {
       return;
     }
 
-    const response = await axios.post( `${import.meta.env.SERVER}/password`, data,{ withCredentials: true });
+    // const response = await axios.post( `${import.meta.env.VITE_SERVER}/passwords/password`, data,{ withCredentials: true });
+
+    const response = await axios.post("https://lockmate.onrender.com/api/v1/passwords/password",data,{
+      withCredentials:true
+    })
+
+    console.log("Eroorr",response )
 
 
 

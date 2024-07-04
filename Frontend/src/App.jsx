@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
 
-  
+  // console.log(import.meta.env.VITE_SERVER);  
 
   return (
     <>

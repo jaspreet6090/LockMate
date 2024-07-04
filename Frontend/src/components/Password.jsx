@@ -24,7 +24,7 @@ const Password = () => {
   const handleEdit = async (e, passwordId) => {
     e.preventDefault();
     try {
-      const response = await axios.patch(`${import.meta.env.SERVER}/${passwordId}`, editedPassword[passwordId], { withCredentials: true });
+      const response = await axios.patch(`${import.meta.env.VITE_SERVER}/passwords/${passwordId}`, editedPassword[passwordId], { withCredentials: true });
       console.log(response.data);
       toast.success('Password updated successfully!');
       fetchPasswords(); // Update passwords after editing
@@ -39,7 +39,7 @@ const Password = () => {
     e.preventDefault();
     if (window.confirm('Are you sure you want to delete this password?')) {
       try {
-        const response = await axios.delete(`${import.meta.env.SERVER}/passwords/${passwordId}`, { withCredentials: true });
+        const response = await axios.delete(`${import.meta.env.VITE_SERVER}/passwords/${passwordId}`, { withCredentials: true });
         console.log(response.data);
         toast.success('Password deleted successfully!');
         fetchPasswords(); // Update passwords after deletion
@@ -71,13 +71,13 @@ const Password = () => {
 
   const fetchPasswords = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.SERVER}/password`, { withCredentials: true });
+      const response = await axios.get(`${import.meta.env.VITE_SERVER}/passwords/password`, { withCredentials: true });
       if (response) {
         setPasswords(response.data.data);
       }
     } catch (error) {
       console.error('Error fetching passwords:', error);
-      toast.error('Failed to fetch passwords');
+      // toast.error('Failed to fetch passwords');
     }
   };
 
@@ -87,13 +87,25 @@ const Password = () => {
 
   return (
     <section className='my-6 mx-4'>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Bounce
+      />
       <h2 className='text-lg sm:text-xl font-bold'>Saved Passwords</h2>
 
       {!user && <p>Login to view Passwords</p>}
-      {passwords.length === 0 && <p className='text-center mt-5'>No Passwords Saved</p>}
+      {passwords?.length === 0 && <p className='text-center mt-5'>No Passwords Saved</p>}
 
-      {passwords.map((password) => (
+      {passwords?.map((password) => (
         <form key={password.id} className='flex justify-center gap-2 sm:gap-7 mt-5 flex-col sm:flex-row' onSubmit={(e) => handleEdit(e, password.id)}>
           <input
             type='text'

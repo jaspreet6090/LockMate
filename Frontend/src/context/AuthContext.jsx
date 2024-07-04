@@ -27,9 +27,10 @@ const AuthProvider = ({ children }) => {
 
 
   const login = async (userData) => {
-
+   
+    
     try {
-      const response = await axios.post(`${import.meta.env.SERVER}/users/login`, userData, { withCredentials: true });
+      const response = await axios.post(`${import.meta.env.VITE_SERVER}/users/login`, userData, { withCredentials: true });
       if (response) {
         setUser(response.data.data.user);
         setIsAuthenticated(true);
@@ -44,9 +45,9 @@ const AuthProvider = ({ children }) => {
     }
   };
   const signup = async (userData) => {
-
+    
     try {
-      const response = await axios.post(`${import.meta.env.SERVER}/users/signup`, userData, { withCredentials: true });
+      const response = await axios.post(`${import.meta.env.VITE_SERVER}/users/signup`, userData, { withCredentials: true });
       if (response) {
         setUser(response.data.data.user);
         setIsAuthenticated(true);
