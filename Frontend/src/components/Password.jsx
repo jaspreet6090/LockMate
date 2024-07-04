@@ -24,7 +24,7 @@ const Password = () => {
   const handleEdit = async (e, passwordId) => {
     e.preventDefault();
     try {
-      const response = await axios.patch(`http://localhost:8000/api/v1/passwords/${passwordId}`, editedPassword[passwordId], { withCredentials: true });
+      const response = await axios.patch(`${import.meta.env.SERVER}/${passwordId}`, editedPassword[passwordId], { withCredentials: true });
       console.log(response.data);
       toast.success('Password updated successfully!');
       fetchPasswords(); // Update passwords after editing
@@ -39,7 +39,7 @@ const Password = () => {
     e.preventDefault();
     if (window.confirm('Are you sure you want to delete this password?')) {
       try {
-        const response = await axios.delete(`http://localhost:8000/api/v1/passwords/${passwordId}`, { withCredentials: true });
+        const response = await axios.delete(`${import.meta.env.SERVER}/passwords/${passwordId}`, { withCredentials: true });
         console.log(response.data);
         toast.success('Password deleted successfully!');
         fetchPasswords(); // Update passwords after deletion
@@ -71,7 +71,7 @@ const Password = () => {
 
   const fetchPasswords = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/v1/passwords/password', { withCredentials: true });
+      const response = await axios.get(`${import.meta.env.SERVER}/password`, { withCredentials: true });
       if (response) {
         setPasswords(response.data.data);
       }

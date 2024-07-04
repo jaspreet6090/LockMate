@@ -25,7 +25,7 @@ const Form = () => {
       return;
     }
 
-    const response = await axios.post('http://localhost:8000/api/v1/passwords/password', data,{ withCredentials: true });
+    const response = await axios.post( `${import.meta.env.SERVER}/password`, data,{ withCredentials: true });
 
 
 

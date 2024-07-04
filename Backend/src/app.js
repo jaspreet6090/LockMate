@@ -18,6 +18,10 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
 
+app.get("/",(req,res)=>{
+  res.send("Hello World");
+})
+
 //import route
 
 import userRoute from "./routes/user.route.js";
