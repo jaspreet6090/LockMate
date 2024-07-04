@@ -14,7 +14,7 @@ connectDB()
       console.log("Error connecting to MongoDB:", error);
     });
     
-    app.get("/", (req, res) => {
+    app.get("/hi", (req, res) => {
       res.send("Hello World");
     });
 
