@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='py-4 px-2 sm:px-4 shadow-md sticky top-0 bg-background z-100 flex items-center justify-between'>
+    <nav className='py-4 px-2 sm:px-4 shadow-md sticky top-0 bg-background z-10 flex items-center justify-between'>
       <Link 
       to= "/"
       className="text-lg font-bold sm:text-2xl">LockMate</Link>

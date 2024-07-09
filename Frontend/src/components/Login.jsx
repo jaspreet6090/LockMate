@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast} from 'react-toastify';
 import { AuthContext } from '../context/AuthContext';
 
 export const Login = () => {
@@ -22,11 +20,11 @@ export const Login = () => {
 
     const response = await login(data);
 
-    console.log("login response" , response);
+    console.log("login response", response);
 
     if (response == false) {
-      toast.error('Login Failed! Email or Password is incorrect!');   
-    }else {
+      toast.error('Login Failed! Email or Password is incorrect!');
+    } else {
       console.log(response);
       toast.success('Login Successful!', {
         onClose: () => {
@@ -35,24 +33,13 @@ export const Login = () => {
         autoClose: 2000,
       });
     }
-   
+
   };
 
   return (
     <section className="px-3 mt-16 min-h-screen flex flex-col items-center bg-gray-100">
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition:Bounce
-      />
+      
+
       <h1 className="text-3xl font-bold mb-8">Login</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <div className="mb-4">

@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from './components/Navbar'
 import { Form, Password } from './components'
-import 'react-toastify/dist/ReactToastify.css';
-
-
-
-
-
+import { useState } from 'react'
 
 const App = () => {
+  const [triggerPasswordUpdate, setTriggerPasswordUpdate] = useState(false);
 
-  // console.log(import.meta.env.VITE_SERVER);  
-
+  const handleAddPassword = () => {
+    setTriggerPasswordUpdate(!triggerPasswordUpdate); // Toggle state to trigger re-render in Password component
+  };
   return (
-    <>
-      <Form />
-      <Password  />
-
-      <div className="h-[1000px]">wdw</div>
-    </>
+    <section className='container'>
+      <Form onAddPassword={handleAddPassword} />
+      <Password key={triggerPasswordUpdate} /> {/* Key is updated to force re-render */}
+    </section>
   )
 }
 

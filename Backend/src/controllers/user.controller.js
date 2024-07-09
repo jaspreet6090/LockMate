@@ -50,8 +50,24 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "User not created");
   }
 
-  res.status(200)
-    .json(new ApiResponse(200, user, "User created successfully"))
+  const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
+
+  const cookieOption = {
+    httpOnly: true, 
+    secure: true, // Set to true if using HTTPS
+    sameSite: 'None' // Adjust sameSite policy as needed for your use case
+  }
+
+  return res.status(200)
+    .cookie("accessToken", accessToken, cookieOption)
+    .cookie("refreshToken", refreshToken, cookieOption)
+    .json(
+      new ApiResponse(200, {
+        accessToken,
+        refreshToken,
+        user,
+      }, "User Singup successfully")
+    )
 })
 
 const loginUser = asyncHandler(async (req, res) => {

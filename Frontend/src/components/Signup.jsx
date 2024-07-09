@@ -2,9 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../context/AuthContext';
 
 
@@ -26,20 +24,20 @@ export const Signup = () => {
   const onSubmit = async (data) => {
     const response = await signup(data);
 
-    console.log("signup response" , response);
+    console.log("signup response", response);
 
     if (response == false) {
       toast.error('Signup Failed! User Exist ');
-    }else {
+    } else {
       console.log(response);
       toast.success('Signup Successful!', {
         onClose: () => {
           navigate("/"); // Redirect to home page
         },
         autoClose: 2000,
-      }); 
+      });
     }
-    
+
   };
 
 
@@ -47,19 +45,8 @@ export const Signup = () => {
 
   return (
     <section className="px-3 mt-16 min-h-screen flex flex-col items-center bg-gray-100">
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition:Bounce
-      />
+      
+
       <h1 className="text-3xl font-bold mb-8">Signup</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <div className="mb-4">

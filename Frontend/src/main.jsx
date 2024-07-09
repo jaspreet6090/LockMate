@@ -8,6 +8,8 @@ import { Login } from './components/Login';
 import Navbar from './components/Navbar.jsx';
 import { Footer } from './components/Footer.jsx';
 import { AuthProvider } from './context/AuthContext';
+import { ToastContainer,Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = () => (
   <>
@@ -43,6 +45,19 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
      <AuthProvider> {/* Wrap the app with AuthProvider */}
+     <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
     <RouterProvider router={router} />
   </AuthProvider>
 </React.StrictMode>
