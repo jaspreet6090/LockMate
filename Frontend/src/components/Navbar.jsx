@@ -18,12 +18,12 @@ const Navbar = () => {
       <div className="flex  items-center sm:gap-2">
         {isAuthenticated ? (
           <>
-            <div className="text-sm sm:text-xl mr-1 sm:mr-4 italic">
+            <div className="text-sm sm:text-xl mr-1 sm:mr-4 italic font-semibold">
               Welcome, {user?.name || 'User'}
             </div>
             <button
               onClick={handleLogout}
-              className="text-md bg-primary bg-black text-white px-4 py-2 rounded-lg transition-all hover:translate-y-[-2px] sm:text-xl"
+              className="text-sm sm:text-md bg-primary bg-black text-white px-4 py-2 rounded-lg transition-all hover:translate-y-[-2px] sm:text-xl"
             >
               Logout
             </button>
@@ -31,13 +31,13 @@ const Navbar = () => {
         ) : (
           <>
             <NavLink to="/signup">
-              <button className="text-md bg-primary bg-black text-white px-4 py-2 rounded-lg transition-all hover:translate-y-[-2px] sm:text-xl">
+              <button className="text-sm sm:text-md bg-primary mr-2 bg-black text-white px-4 py-2 rounded-lg transition-all hover:translate-y-[-2px] sm:text-xl">
                 SignUp
               </button>
             </NavLink>
 
             <NavLink to="/login">
-              <button className="text-md bg-primary border-black border-2 text-black px-4 py-2 rounded-lg transition-all hover:translate-y-[-2px] sm:text-xl">
+              <button className="text-sm sm:text-md bg-primary border-black border-2 text-black px-4 py-2 rounded-lg transition-all hover:translate-y-[-2px] sm:text-xl">
                 Login
               </button>
             </NavLink>
