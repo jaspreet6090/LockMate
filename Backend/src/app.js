@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors({
   // origin: process.env.CORS_ORIGIN,
-  origin: "https://lockmate.vercel.app/",
+  origin: "https://lockmate.vercel.app",
   credentials: true
 }));
 
