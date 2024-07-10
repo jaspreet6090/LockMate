@@ -83,6 +83,7 @@ const Password = () => {
       } catch (error) {
         console.error('Error fetching passwords:', error);
         toast.error('Failed to fetch passwords');
+        toast('Try to Re-login');
       }
     } else {
       setPasswords([]);
