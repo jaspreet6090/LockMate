@@ -1,8 +1,8 @@
-Here is the `README.md` file for your backend:
 
-# Lockmat Backend
 
-Lockmat is a Password Manager application backend developed using Node.js and Express. This backend handles user authentication and CRUD operations for saved passwords.
+# Lockmate Backend
+
+Lockmate is a Password Manager application backend developed using Node.js and Express. This backend handles user authentication and CRUD operations for saved passwords.
 
 ## Table of Contents
 

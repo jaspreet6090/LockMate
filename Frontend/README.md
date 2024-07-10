@@ -1,6 +1,6 @@
-# Lockmat Frontend
+# Lockmate Frontend
 
-Lockmat is a Password Manager application developed using React. Users can log in, sign up, add passwords, and perform CRUD operations on saved passwords through the UI.
+Lockmate is a Password Manager application developed using React. Users can log in, sign up, add passwords, and perform CRUD operations on saved passwords through the UI.
 
 ## Table of Contents
 
