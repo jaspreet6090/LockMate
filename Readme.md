@@ -91,8 +91,8 @@ npm run start
 
 ## Hosted Applications
 
-- Frontend: [https://ee.vercel.app](https://ee.vercel.app)
-- Backend: [https://ee.onrender.com/api/v1](https://ee.onrender.com/api/v1)
+- Frontend: [https://lockmate.vercel.app](https://lockmate.vercel.app)
+- Backend: [https://lockmate.onrender.com/api/v1](https://lockmate.onrender.com/api/v1)
 
 
 - Happy Coding ❤️
